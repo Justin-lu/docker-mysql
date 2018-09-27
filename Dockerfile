@@ -3,13 +3,12 @@ FROM ubuntu:bionic-20180526
 LABEL maintainer="sameer@damagehead.com"
 
 ENV MYSQL_USER=mysql \
-    MYSQL_VERSION=5.7.22 \
     MYSQL_DATA_DIR=/var/lib/mysql \
     MYSQL_RUN_DIR=/run/mysqld \
     MYSQL_LOG_DIR=/var/log/mysql
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server=${MYSQL_VERSION}* \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
  && rm -rf ${MYSQL_DATA_DIR} \
  && rm -rf /var/lib/apt/lists/*
 
